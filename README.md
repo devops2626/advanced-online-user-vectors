@@ -15,6 +15,7 @@ This repository provides a practical, end-to-end engineering handbook for buildi
 | [PHASE_4_OFFLINE_EVALUATION.md](PHASE_4_OFFLINE_EVALUATION.md) | Offline replay, nDCG / ILD metrics |
 | [PHASE_5_AB_TESTING.md](PHASE_5_AB_TESTING.md) | Traffic bucketing, feature flags, guardrails, online stats |
 | [PHASE_6_COLD_START.md](PHASE_6_COLD_START.md) | New-user onboarding & new-item exploration (Thompson Sampling) |
+| [PHASE_7_VECTOR_DB_SELECTION.md](PHASE_7_VECTOR_DB_SELECTION.md) | Vector database comparison & integration for candidate retrieval |
 
 ---
 
@@ -119,7 +120,8 @@ These features give the ranking model (usually a deep neural net or gradient-boo
 - **[Phase 4 – Offline Evaluation](PHASE_4_OFFLINE_EVALUATION.md)** — Safe simulation with nDCG / ILD
 - **[Phase 5 – A/B Testing](PHASE_5_AB_TESTING.md)** — Traffic bucketing, feature flags, guardrails
 - **[Phase 6 – Cold-Start](PHASE_6_COLD_START.md)** — New users & new videos (Thompson Sampling)
+- **[Phase 7 – Vector DB Selection](PHASE_7_VECTOR_DB_SELECTION.md)** — Pinecone, Qdrant, Weaviate, Milvus comparison & integration
 
 ---
 
-*This repository synthesizes common production patterns used in large-scale recommender systems across the full lifecycle: real-time vectors, ranking, diversity, observability, offline evaluation, online experimentation, and cold-start handling.*
+*This repository synthesizes common production patterns used in large-scale recommender systems across the full lifecycle: real-time vectors, ranking, diversity, observability, offline evaluation, online experimentation, cold-start handling, and vector retrieval.*

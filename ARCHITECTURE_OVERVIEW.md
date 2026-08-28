@@ -2,7 +2,7 @@
 
 **Advanced Online User Vector Updates for Recommendation Systems**
 
-This repository is a complete, end-to-end engineering handbook for building production-grade short-form video recommendation systems. It covers the full lifecycle from real-time vector updates to safe live experimentation and cold-start handling.
+This repository is a complete, end-to-end engineering handbook for building production-grade short-form video recommendation systems. It covers the full lifecycle from real-time vector updates to safe live experimentation, cold-start handling, and vector database selection.
 
 ---
 
@@ -16,6 +16,7 @@ This repository is a complete, end-to-end engineering handbook for building prod
 | Phase 4 | [PHASE_4_OFFLINE_EVALUATION.md](PHASE_4_OFFLINE_EVALUATION.md) | Offline replay, nDCG, Intra-List Distance, simulation |
 | Phase 5 | [PHASE_5_AB_TESTING.md](PHASE_5_AB_TESTING.md) | Traffic bucketing, feature flags, guardrails, online stats |
 | Phase 6 | [PHASE_6_COLD_START.md](PHASE_6_COLD_START.md) | New-user onboarding, new-item exploration (Thompson Sampling) |
+| Phase 7 | [PHASE_7_VECTOR_DB_SELECTION.md](PHASE_7_VECTOR_DB_SELECTION.md) | Vector database comparison & integration for candidate retrieval |
 
 ---
 
@@ -34,7 +35,7 @@ This repository is a complete, end-to-end engineering handbook for building prod
               Redis / Feature Store
                       │
                       ▼
-[ Client Request ] ──► Retrieval (ANN / Milvus)
+[ Client Request ] ──► Vector DB Retrieval (Pinecone / Qdrant / etc.)
                       │
                       ▼
               Feature Merge + Ranking Model
@@ -51,6 +52,7 @@ This repository is a complete, end-to-end engineering handbook for building prod
 - Offline Evaluation (Phase 4) safely tests changes on historical logs.
 - A/B Testing (Phase 5) enables controlled live rollouts with guardrails.
 - Cold-Start (Phase 6) bootstraps both new users and new videos.
+- Vector DB Selection (Phase 7) provides the retrieval foundation for candidate generation.
 
 ---
 
@@ -62,6 +64,7 @@ This repository is a complete, end-to-end engineering handbook for building prod
 4. Use **Phase 4** to evaluate changes safely offline.
 5. Apply **Phase 5** to roll changes out to real users.
 6. Finish with **Phase 6** to handle the inevitable new-user and new-item cases.
+7. Use **Phase 7** when choosing and integrating the vector database for retrieval.
 
 ---
 
@@ -73,6 +76,7 @@ This repository is a complete, end-to-end engineering handbook for building prod
 - **Measurability** at every stage (latency, ranking quality, diversity)
 - **Safety** through offline simulation and online guardrails
 - **Growth enablement** via explicit cold-start strategies
+- **Flexible retrieval** via a well-chosen vector database
 
 ---
 
