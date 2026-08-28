@@ -1,6 +1,6 @@
 # Advanced Online User Vector Updates for Recommendation Systems
 
-**From Basic EMA to Production-Ready Online Learning + Short-Form Video Ranking, Observability & Offline Evaluation**
+**From Basic EMA to Production-Ready Online Learning + Short-Form Video Ranking, Observability, Offline Evaluation & A/B Testing**
 
 This repository provides a practical, end-to-end guide for building real-time user vector pipelines and short-form video recommendation systems.
 
@@ -12,6 +12,7 @@ This repository provides a practical, end-to-end guide for building real-time us
 | [PHASE_2_IMPLEMENTATION.md](PHASE_2_IMPLEMENTATION.md) | Short-form video ranking features, Flink dual-vector operator, Redis merge, Greedy MMR diversity |
 | [PHASE_3_OBSERVABILITY.md](PHASE_3_OBSERVABILITY.md) | Latency budgets, Prometheus metrics, Grafana dashboards, critical alerting rules |
 | [PHASE_4_OFFLINE_EVALUATION.md](PHASE_4_OFFLINE_EVALUATION.md) | Offline replay, nDCG / ILD metrics, and safe simulation of ranking & diversity changes |
+| [PHASE_5_AB_TESTING.md](PHASE_5_AB_TESTING.md) | Traffic bucketing, feature flags, guardrails, and online statistical evaluation |
 
 ---
 
@@ -113,7 +114,8 @@ These features give the ranking model (usually a deep neural net or gradient-boo
 - **[Phase 2 – Implementation](PHASE_2_IMPLEMENTATION.md)**: Short-form video ranking + Greedy MMR diversity with full code sketches.
 - **[Phase 3 – Observability](PHASE_3_OBSERVABILITY.md)**: Latency budgets, Prometheus, Grafana, and alerting for the 30–50 ms pipeline.
 - **[Phase 4 – Offline Evaluation](PHASE_4_OFFLINE_EVALUATION.md)**: Safe replay of historical sessions with nDCG, ILD, and diversity metrics.
+- **[Phase 5 – A/B Testing](PHASE_5_AB_TESTING.md)**: Traffic bucketing, feature flags, guardrails, and online statistical evaluation.
 
 ---
 
-*This repository synthesizes common production patterns used in large-scale recommender systems (session-aware dual embeddings, online metric learning, Lambda Architecture, ranking, diversity, observability, and offline evaluation).*
+*This repository synthesizes common production patterns used in large-scale recommender systems (session-aware dual embeddings, online metric learning, Lambda Architecture, ranking, diversity, observability, offline evaluation, and online experimentation).*
