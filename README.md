@@ -1,8 +1,16 @@
 # Advanced Online User Vector Updates for Recommendation Systems
 
-**From Basic EMA to Production-Ready Online Learning**
+**From Basic EMA to Production-Ready Online Learning + Short-Form Video Ranking & Observability**
 
-This article explains how to evolve a simple Exponential Moving Average (EMA) user-vector update into a robust, production-grade system using online learning algorithms, dual-vector representations, and the Lambda Architecture.
+This repository provides a practical, end-to-end guide for building real-time user vector pipelines and short-form video recommendation systems.
+
+## Contents
+
+| Document | Description |
+|----------|-------------|
+| [README.md](README.md) (this file) | Core concepts: dual-vector models, online learning, Lambda Architecture |
+| [PHASE_2_IMPLEMENTATION.md](PHASE_2_IMPLEMENTATION.md) | Short-form video ranking features, Flink dual-vector operator, Redis merge, Greedy MMR diversity |
+| [PHASE_3_OBSERVABILITY.md](PHASE_3_OBSERVABILITY.md) | Latency budgets, Prometheus metrics, Grafana dashboards, critical alerting rules |
 
 ---
 
@@ -99,13 +107,11 @@ These features give the ranking model (usually a deep neural net or gradient-boo
 
 ---
 
-## Next Steps
+## Next Phases
 
-Possible deeper dives:
-
-1. Setting up the Ranking Model + Feature Store integration (Feast / Tecton patterns).
-2. Greedy diversity / Maximal Marginal Relevance (MMR) algorithms to prevent echo chambers in the final feed.
+- **[Phase 2 – Implementation](PHASE_2_IMPLEMENTATION.md)**: Short-form video ranking + Greedy MMR diversity with full code sketches.
+- **[Phase 3 – Observability](PHASE_3_OBSERVABILITY.md)**: Latency budgets, Prometheus, Grafana, and alerting for the 30–50 ms pipeline.
 
 ---
 
-*This document synthesizes common production patterns used in large-scale recommender systems (session-aware dual embeddings, online metric learning, and Lambda Architecture for feature freshness).*
+*This repository synthesizes common production patterns used in large-scale recommender systems (session-aware dual embeddings, online metric learning, Lambda Architecture, ranking, diversity, and observability).*
