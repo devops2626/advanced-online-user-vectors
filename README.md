@@ -1,18 +1,20 @@
 # Advanced Online User Vector Updates for Recommendation Systems
 
-**From Basic EMA to Production-Ready Online Learning + Short-Form Video Ranking, Observability, Offline Evaluation & A/B Testing**
+**From Basic EMA to a Complete Production-Grade Recommendation Platform**
 
-This repository provides a practical, end-to-end guide for building real-time user vector pipelines and short-form video recommendation systems.
+This repository provides a practical, end-to-end engineering handbook for building real-time user vector pipelines and short-form video recommendation systems.
 
-## Contents
+## Quick Navigation
 
 | Document | Description |
 |----------|-------------|
+| [ARCHITECTURE_OVERVIEW.md](ARCHITECTURE_OVERVIEW.md) | **Start here** — High-level map of the entire system |
 | [README.md](README.md) (this file) | Core concepts: dual-vector models, online learning, Lambda Architecture |
-| [PHASE_2_IMPLEMENTATION.md](PHASE_2_IMPLEMENTATION.md) | Short-form video ranking features, Flink dual-vector operator, Redis merge, Greedy MMR diversity |
-| [PHASE_3_OBSERVABILITY.md](PHASE_3_OBSERVABILITY.md) | Latency budgets, Prometheus metrics, Grafana dashboards, critical alerting rules |
-| [PHASE_4_OFFLINE_EVALUATION.md](PHASE_4_OFFLINE_EVALUATION.md) | Offline replay, nDCG / ILD metrics, and safe simulation of ranking & diversity changes |
-| [PHASE_5_AB_TESTING.md](PHASE_5_AB_TESTING.md) | Traffic bucketing, feature flags, guardrails, and online statistical evaluation |
+| [PHASE_2_IMPLEMENTATION.md](PHASE_2_IMPLEMENTATION.md) | Ranking features, Flink dual-vector operator, Redis merge, Greedy MMR |
+| [PHASE_3_OBSERVABILITY.md](PHASE_3_OBSERVABILITY.md) | Latency budgets, Prometheus, Grafana, alerting |
+| [PHASE_4_OFFLINE_EVALUATION.md](PHASE_4_OFFLINE_EVALUATION.md) | Offline replay, nDCG / ILD metrics |
+| [PHASE_5_AB_TESTING.md](PHASE_5_AB_TESTING.md) | Traffic bucketing, feature flags, guardrails, online stats |
+| [PHASE_6_COLD_START.md](PHASE_6_COLD_START.md) | New-user onboarding & new-item exploration (Thompson Sampling) |
 
 ---
 
@@ -109,13 +111,15 @@ These features give the ranking model (usually a deep neural net or gradient-boo
 
 ---
 
-## Next Phases
+## Full Phase Index
 
-- **[Phase 2 – Implementation](PHASE_2_IMPLEMENTATION.md)**: Short-form video ranking + Greedy MMR diversity with full code sketches.
-- **[Phase 3 – Observability](PHASE_3_OBSERVABILITY.md)**: Latency budgets, Prometheus, Grafana, and alerting for the 30–50 ms pipeline.
-- **[Phase 4 – Offline Evaluation](PHASE_4_OFFLINE_EVALUATION.md)**: Safe replay of historical sessions with nDCG, ILD, and diversity metrics.
-- **[Phase 5 – A/B Testing](PHASE_5_AB_TESTING.md)**: Traffic bucketing, feature flags, guardrails, and online statistical evaluation.
+- **[Architecture Overview](ARCHITECTURE_OVERVIEW.md)** — High-level system map and reading order
+- **[Phase 2 – Implementation](PHASE_2_IMPLEMENTATION.md)** — Ranking + MMR + code sketches
+- **[Phase 3 – Observability](PHASE_3_OBSERVABILITY.md)** — Latency budgets and monitoring
+- **[Phase 4 – Offline Evaluation](PHASE_4_OFFLINE_EVALUATION.md)** — Safe simulation with nDCG / ILD
+- **[Phase 5 – A/B Testing](PHASE_5_AB_TESTING.md)** — Traffic bucketing, feature flags, guardrails
+- **[Phase 6 – Cold-Start](PHASE_6_COLD_START.md)** — New users & new videos (Thompson Sampling)
 
 ---
 
-*This repository synthesizes common production patterns used in large-scale recommender systems (session-aware dual embeddings, online metric learning, Lambda Architecture, ranking, diversity, observability, offline evaluation, and online experimentation).*
+*This repository synthesizes common production patterns used in large-scale recommender systems across the full lifecycle: real-time vectors, ranking, diversity, observability, offline evaluation, online experimentation, and cold-start handling.*
