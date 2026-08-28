@@ -1,21 +1,28 @@
 """
 Minimal working example:
-1. Retrieve top candidates by cosine similarity
+1. Retrieve top candidates by cosine similarity (with optional metadata filters)
 2. Apply Greedy Maximal Marginal Relevance (MMR) for diversity
 """
 
 import numpy as np
-from toy_data import generate_toy_catalog, generate_user_vector, normalize
+from toy_data import generate_toy_catalog, generate_user_vector, filter_catalog
 
 
 def cosine_similarity(a: np.ndarray, b: np.ndarray) -> float:
     return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b) + 1e-8))
 
 
-def retrieve_candidates(user_vector: np.ndarray, catalog: list, top_k: int = 15) -> list:
-    """Simple brute-force retrieval by cosine similarity."""
+def retrieve_candidates(
+    user_vector: np.ndarray,
+    catalog: list,
+    top_k: int = 15,
+    category: str = None,
+    language: str = None,
+) -> list:
+    """Retrieve top candidates by cosine similarity, with optional metadata filters."""
+    filtered = filter_catalog(catalog, category=category, language=language)
     scored = []
-    for item in catalog:
+    for item in filtered:
         score = cosine_similarity(user_vector, item["embedding"])
         scored.append({**item, "ml_score": score})
     scored.sort(key=lambda x: x["ml_score"], reverse=True)
@@ -77,21 +84,30 @@ def main():
     print(f"Catalog size: {len(catalog)} videos")
     print(f"User vector dimension: {len(user_vector)}\n")
 
-    # 2. Retrieve top candidates
+    # 2. Retrieve without filters
     candidates = retrieve_candidates(user_vector, catalog, top_k=15)
-    print("Top 10 by pure relevance (cosine):")
+    print("Top 10 by pure relevance (no filters):")
     for i, item in enumerate(candidates[:10], 1):
         print(f"  {i:2d}. {item['video_id']} | creator={item['creator_id']} | "
-              f"category={item['category']} | score={item['ml_score']:.3f}")
+              f"category={item['category']} | lang={item['language']} | score={item['ml_score']:.3f}")
 
-    # 3. Apply MMR for diversity
+    # 3. Retrieve with metadata filters
+    filtered_candidates = retrieve_candidates(
+        user_vector, catalog, top_k=10, category="gaming", language="en"
+    )
+    print("\nTop results with filters (category=gaming, language=en):")
+    for i, item in enumerate(filtered_candidates, 1):
+        print(f"  {i:2d}. {item['video_id']} | creator={item['creator_id']} | "
+              f"category={item['category']} | lang={item['language']} | score={item['ml_score']:.3f}")
+
+    # 4. Apply MMR for diversity
     diversified = maximal_marginal_relevance(candidates, top_n=8, lambda_param=0.7)
     print("\nFinal feed after MMR (λ=0.7):")
     for i, item in enumerate(diversified, 1):
         print(f"  {i:2d}. {item['video_id']} | creator={item['creator_id']} | "
               f"category={item['category']} | score={item['ml_score']:.3f}")
 
-    # 4. Show diversity effect
+    # 5. Show diversity effect
     creators_before = [c["creator_id"] for c in candidates[:8]]
     creators_after = [c["creator_id"] for c in diversified]
     print("\nCreator distribution (top 8):")
