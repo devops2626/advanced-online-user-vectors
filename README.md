@@ -16,6 +16,21 @@ This repository provides a practical, end-to-end engineering handbook for buildi
 | [PHASE_5_AB_TESTING.md](PHASE_5_AB_TESTING.md) | Traffic bucketing, feature flags, guardrails, online stats |
 | [PHASE_6_COLD_START.md](PHASE_6_COLD_START.md) | New-user onboarding & new-item exploration (Thompson Sampling) |
 | [PHASE_7_VECTOR_DB_SELECTION.md](PHASE_7_VECTOR_DB_SELECTION.md) | Vector database comparison & integration for candidate retrieval |
+| [code/](code/) | **Minimal working example** — toy embeddings + retrieval + MMR demo |
+
+---
+
+## Try the Code Example
+
+A self-contained demo lives in the [`code/`](code/) directory. It requires only NumPy:
+
+```bash
+cd code
+pip install -r requirements.txt
+python retrieve_and_mmr.py
+```
+
+The script generates a toy catalog, retrieves candidates by cosine similarity, then applies Greedy MMR to produce a diversified feed — illustrating the core retrieval → diversity flow from Phases 2 and 7.
 
 ---
 
@@ -121,6 +136,7 @@ These features give the ranking model (usually a deep neural net or gradient-boo
 - **[Phase 5 – A/B Testing](PHASE_5_AB_TESTING.md)** — Traffic bucketing, feature flags, guardrails
 - **[Phase 6 – Cold-Start](PHASE_6_COLD_START.md)** — New users & new videos (Thompson Sampling)
 - **[Phase 7 – Vector DB Selection](PHASE_7_VECTOR_DB_SELECTION.md)** — Pinecone, Qdrant, Weaviate, Milvus comparison & integration
+- **[code/](code/)** — Runnable toy example (retrieval + MMR)
 
 ---
 
